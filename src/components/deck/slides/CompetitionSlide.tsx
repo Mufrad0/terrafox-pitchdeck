@@ -35,26 +35,26 @@ export const CompetitionSlide = () => {
             </div>
           </div>
 
-          {/* Point Solutions */}
+          {/* Other AI Tools */}
           <div className="bg-card rounded-2xl p-6 border border-border">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center">
                 <Zap className="w-7 h-7 text-muted-foreground" />
               </div>
-              <h4 className="text-xl font-semibold text-foreground">Point Solutions</h4>
+              <h4 className="text-xl font-semibold text-foreground">Other AI Tools</h4>
             </div>
             <div className="space-y-3">
               <p className="text-base text-foreground flex items-center gap-2">
-                <span className="text-primary">✓</span> Narrow automation
+                <span className="text-primary">✓</span> Fast automation
               </p>
               <p className="text-base text-destructive flex items-center gap-2">
-                <span>✗</span> Not end-to-end
+                <span>✗</span> Generic outputs
               </p>
               <p className="text-base text-destructive flex items-center gap-2">
-                <span>✗</span> Weak audit trail
+                <span>✗</span> No compliance expertise
               </p>
               <p className="text-base text-destructive flex items-center gap-2">
-                <span>✗</span> Limited jurisdictions
+                <span>✗</span> Hallucination risk
               </p>
             </div>
           </div>
