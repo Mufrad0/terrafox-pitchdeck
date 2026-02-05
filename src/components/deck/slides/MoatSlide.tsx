@@ -1,7 +1,6 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
 import { moatItems } from "@/data/deckData";
-import { motion } from "framer-motion";
-import { RefreshCw, Map, Database, Workflow, Users } from "lucide-react";
+import { Map, Database, Workflow, Users } from "lucide-react";
 
 const icons = [Map, Database, Workflow, Users];
 
@@ -13,68 +12,55 @@ export const MoatSlide = () => {
         Defensibility from jurisdiction logic, reproducible data pipelines, and workflow integration.
       </SlideTakeaway>
 
-      <SlideContent className="items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Flywheel */}
-          <motion.div
-            initial={{ opacity: 0, rotate: -10 }}
-            animate={{ opacity: 1, rotate: 0 }}
-            transition={{ delay: 0.3 }}
-            className="relative w-72 h-72 mx-auto"
-          >
-            <div className="absolute inset-0 rounded-full border-4 border-dashed border-primary/30" />
-            
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-4"
-            >
-              <RefreshCw className="w-8 h-8 text-primary absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-            </motion.div>
+      <SlideContent>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Static Flywheel */}
+          <div className="flex justify-center">
+            <div className="relative w-[280px] h-[280px]">
+              {/* Outer dashed circle */}
+              <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/40" />
+              
+              {/* Inner filled circle */}
+              <div className="absolute inset-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <div className="text-center">
+                  <p className="text-xl font-bold text-primary">Flywheel</p>
+                  <p className="text-sm text-muted-foreground mt-1">More usage → Better outputs</p>
+                </div>
+              </div>
 
-            {/* Center */}
-            <div className="absolute inset-8 rounded-full bg-primary/10 flex items-center justify-center">
-              <div className="text-center p-4">
-                <p className="text-lg font-bold text-primary">Flywheel</p>
-                <p className="text-xs text-muted-foreground mt-1">More usage → Better outputs</p>
+              {/* Labels positioned around the circle */}
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-card px-4 py-2 rounded-full border border-border text-sm font-medium shadow-sm">
+                More Jurisdictions
+              </div>
+              <div className="absolute top-1/2 -right-4 -translate-y-1/2 bg-card px-4 py-2 rounded-full border border-border text-sm font-medium shadow-sm">
+                More Users
+              </div>
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-card px-4 py-2 rounded-full border border-border text-sm font-medium shadow-sm">
+                Better Outputs
+              </div>
+              <div className="absolute top-1/2 -left-4 -translate-y-1/2 bg-card px-4 py-2 rounded-full border border-border text-sm font-medium shadow-sm">
+                More Templates
               </div>
             </div>
+          </div>
 
-            {/* Labels around */}
-            <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-card px-3 py-1 rounded-full border border-border text-xs font-medium">
-              More Jurisdictions
-            </div>
-            <div className="absolute top-1/2 -right-2 -translate-y-1/2 bg-card px-3 py-1 rounded-full border border-border text-xs font-medium">
-              More Users
-            </div>
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-card px-3 py-1 rounded-full border border-border text-xs font-medium">
-              Better Outputs
-            </div>
-            <div className="absolute top-1/2 -left-2 -translate-y-1/2 bg-card px-3 py-1 rounded-full border border-border text-xs font-medium">
-              More Templates
-            </div>
-          </motion.div>
-
-          {/* Moat items */}
-          <div className="space-y-4">
+          {/* Moat items - 2x2 grid */}
+          <div className="grid grid-cols-1 gap-5">
             {moatItems.map((item, index) => {
               const Icon = icons[index];
               return (
-                <motion.div
+                <div
                   key={item.title}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  className="flex items-start gap-4 bg-card border border-border rounded-xl p-4"
+                  className="flex items-start gap-5 bg-card border border-border rounded-xl p-5"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-primary" />
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                    <h4 className="text-lg font-semibold text-foreground">{item.title}</h4>
+                    <p className="text-base text-muted-foreground mt-1">{item.description}</p>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
