@@ -126,15 +126,17 @@ export const gtmStages: GTMStage[] = [
 ];
 
 export const financials2026: FinancialItem[] = [
-  { label: "Pro Reports (200 × $999)", value: 200000 },
-  { label: "Subscriptions (50 × $450/mo × 6mo)", value: 135000 },
+  { label: "Basic (300 × $199)", value: 60000 },
+  { label: "Pro (150 × $999)", value: 150000 },
+  { label: "Premium (50 × $2,499)", value: 125000 },
   { label: "Enterprise (2 deals)", value: 120000 }
 ];
 
 export const financials2027: FinancialItem[] = [
-  { label: "Pro Reports (700 × $999)", value: 700000 },
-  { label: "Subscriptions (100 × $750/mo × 12mo)", value: 900000 },
-  { label: "Enterprise (4 deals)", value: 400000 }
+  { label: "Basic (500 × $199)", value: 100000 },
+  { label: "Pro (600 × $999)", value: 600000 },
+  { label: "Premium (300 × $2,499)", value: 750000 },
+  { label: "Enterprise (5 deals)", value: 550000 }
 ];
 
 export const tractionItems = [
