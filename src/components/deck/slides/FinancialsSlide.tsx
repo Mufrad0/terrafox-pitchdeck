@@ -6,11 +6,11 @@ import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, LabelList } fro
 const chartData = [
   {
     year: "2026E",
-    total: 455000
+    total: 600000
   },
   {
     year: "2027E",
-    total: 2000000
+    total: 2200000
   }
 ];
 
@@ -32,7 +32,7 @@ export const FinancialsSlide = () => {
           >
             <div className="h-32">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={chartData} layout="vertical">
+                <BarChart data={chartData} layout="vertical" margin={{ right: 60 }}>
                   <XAxis type="number" hide />
                   <YAxis type="category" dataKey="year" width={50} tick={{ fontSize: 12 }} />
                   <Bar dataKey="total" radius={[0, 6, 6, 0]}>
@@ -42,7 +42,7 @@ export const FinancialsSlide = () => {
                     <LabelList 
                       dataKey="total" 
                       position="right" 
-                      formatter={(value: number) => value >= 1000000 ? `$${(value / 1000000).toFixed(2)}M` : `$${(value / 1000).toFixed(0)}K`}
+                      formatter={(value: number) => value >= 1000000 ? `$${(value / 1000000).toFixed(1)}M` : `$${(value / 1000).toFixed(0)}K`}
                       style={{ fontSize: 12, fill: 'hsl(var(--foreground))', fontWeight: 600 }}
                     />
                   </Bar>
@@ -63,7 +63,7 @@ export const FinancialsSlide = () => {
             transition={{ delay: 0.3 }}
             className="bg-card border border-border rounded-xl p-4"
           >
-            <h3 className="font-semibold text-foreground mb-2 text-sm">2026E — <span className="text-primary">$455K</span></h3>
+            <h3 className="font-semibold text-foreground mb-2 text-sm">2026E — <span className="text-primary">$600K</span></h3>
             <div className="space-y-1.5">
               {financials2026.map((item) => (
                 <div key={item.label} className="flex justify-between text-xs">
@@ -73,7 +73,7 @@ export const FinancialsSlide = () => {
               ))}
               <div className="border-t border-border pt-1.5 flex justify-between text-xs font-semibold">
                 <span className="text-foreground">Total</span>
-                <span className="text-primary">$455K</span>
+                <span className="text-primary">$600K</span>
               </div>
             </div>
           </motion.div>
@@ -85,7 +85,7 @@ export const FinancialsSlide = () => {
             transition={{ delay: 0.4 }}
             className="bg-card border border-border rounded-xl p-4"
           >
-            <h3 className="font-semibold text-foreground mb-2 text-sm">2027E — <span className="text-primary">$2M</span></h3>
+            <h3 className="font-semibold text-foreground mb-2 text-sm">2027E — <span className="text-primary">$2.2M</span></h3>
             <div className="space-y-1.5">
               {financials2027.map((item) => (
                 <div key={item.label} className="flex justify-between text-xs">
@@ -95,7 +95,7 @@ export const FinancialsSlide = () => {
               ))}
               <div className="border-t border-border pt-1.5 flex justify-between text-xs font-semibold">
                 <span className="text-foreground">Total</span>
-                <span className="text-primary">$2M</span>
+                <span className="text-primary">$2.2M</span>
               </div>
             </div>
           </motion.div>
