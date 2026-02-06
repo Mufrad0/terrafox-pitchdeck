@@ -92,13 +92,13 @@ export const pricingTiers: PricingTier[] = [
   {
     name: "Pro",
     price: "$999",
-    description: "AI consultant-style narrative, mitigation summary, exportable appendix",
-    popular: true
+    description: "AI consultant-style narrative, mitigation summary, exportable appendix"
   },
   {
     name: "Premium",
     price: "$2,499",
-    description: "Full compliance suite, jurisdiction checks, permit checklist and timelines"
+    description: "Full compliance suite, jurisdiction checks, permit checklist and timelines",
+    popular: true
   },
   {
     name: "Enterprise",
