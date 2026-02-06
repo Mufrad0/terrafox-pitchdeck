@@ -15,56 +15,120 @@ export const PDFExportButton = ({ slidesRef, totalSlides, onSlideChange }: PDFEx
 
   const exportToPDF = async () => {
     if (!slidesRef.current) return;
-    
+
+    const EXPORT_WIDTH = 1920;
+    const EXPORT_HEIGHT = 1080;
+    const CAPTURE_SCALE = 2; // renders at 3840x2160 then downscales into the PDF
+
+    const waitForNextPaint = () =>
+      new Promise<void>((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
+      );
+
+    const waitForImages = async (root: HTMLElement) => {
+      const images = Array.from(root.querySelectorAll("img"));
+      if (images.length === 0) return;
+
+      await Promise.all(
+        images.map(async (img) => {
+          try {
+            // If already loaded, decode for best text/image sharpness
+            if (img.complete && img.naturalWidth > 0) {
+              await img.decode?.().catch(() => undefined);
+              return;
+            }
+
+            await new Promise<void>((resolve) => {
+              const done = () => resolve();
+              img.addEventListener("load", done, { once: true });
+              img.addEventListener("error", done, { once: true });
+            });
+
+            await img.decode?.().catch(() => undefined);
+          } catch {
+            // ignore
+          }
+        })
+      );
+    };
+
     setIsExporting(true);
-    
-    // Add class to disable animations
-    document.body.classList.add('pdf-exporting');
-    
+
+    // Add class to disable animations (and let SlideLayout render statically)
+    document.body.classList.add("pdf-exporting");
+
     try {
+      // Ensure fonts are loaded before capture (prevents fallback font screenshots)
+      await (document as any).fonts?.ready?.catch(() => undefined);
+
       const pdf = new jsPDF({
         orientation: "landscape",
         unit: "px",
-        format: [1920, 1080]
+        format: [EXPORT_WIDTH, EXPORT_HEIGHT],
+        compress: true,
       });
 
       const container = slidesRef.current;
 
       for (let i = 0; i < totalSlides; i++) {
-        // Change to target slide
         await onSlideChange(i);
-        
-        // Wait for slide to render (reduced since no animations)
-        await new Promise(resolve => setTimeout(resolve, 300));
+
+        // Let React commit + layout settle
+        await waitForNextPaint();
+        await waitForImages(container);
+        await waitForNextPaint();
+
+        const computedBg = window.getComputedStyle(container).backgroundColor;
+        const backgroundColor =
+          computedBg && computedBg !== "rgba(0, 0, 0, 0)" ? computedBg : "#ffffff";
 
         const canvas = await html2canvas(container, {
-          scale: 2,
+          // Force a consistent 16:9 capture area regardless of current viewport
+          width: EXPORT_WIDTH,
+          height: EXPORT_HEIGHT,
+          windowWidth: EXPORT_WIDTH,
+          windowHeight: EXPORT_HEIGHT,
+
+          scale: CAPTURE_SCALE,
           useCORS: true,
-          allowTaint: true,
-          backgroundColor: "#ffffff",
-          width: container.offsetWidth,
-          height: container.offsetHeight,
+          allowTaint: false,
+          backgroundColor,
+          imageTimeout: 15000,
           logging: false,
+
+          onclone: (clonedDoc) => {
+            // Ensure the cloned DOM is also in export mode
+            clonedDoc.body.classList.add("pdf-exporting");
+            clonedDoc.body.style.margin = "0";
+
+            const clonedContainer = clonedDoc.querySelector(
+              "[data-pdf-slide-root='true']"
+            ) as HTMLElement | null;
+
+            if (clonedContainer) {
+              clonedContainer.style.width = `${EXPORT_WIDTH}px`;
+              clonedContainer.style.height = `${EXPORT_HEIGHT}px`;
+              clonedContainer.style.overflow = "hidden";
+            }
+          },
         });
 
         const imgData = canvas.toDataURL("image/png", 1.0);
-        
-        if (i > 0) {
-          pdf.addPage();
-        }
-        
-        pdf.addImage(imgData, "PNG", 0, 0, 1920, 1080);
+
+        if (i > 0) pdf.addPage();
+
+        // No stretching: canvas is already 16:9 @ 1920x1080 logical size
+        pdf.addImage(imgData, "PNG", 0, 0, EXPORT_WIDTH, EXPORT_HEIGHT, undefined, "FAST");
       }
 
       // Return to first slide after export
       await onSlideChange(0);
-      
+
       pdf.save("TerraFox-Pitch-Deck.pdf");
     } catch (error) {
       console.error("Error exporting PDF:", error);
     } finally {
-      // Remove the export class
-      document.body.classList.remove('pdf-exporting');
+      document.body.classList.remove("pdf-exporting");
       setIsExporting(false);
     }
   };
