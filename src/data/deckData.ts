@@ -67,7 +67,7 @@ export const quotes: Quote[] = [
     title: "E2K Engineering"
   },
   {
-    text: "It's silly to be charging billable hours for what is essentially just pulling data.",
+    text: "It's something I have thought about a lot as an air quality consultant. It's silly to be charging billable hours for what is essentially just pulling data.",
     author: "Alex Willson",
     title: "ERM, Air Quality Consultant"
   },
