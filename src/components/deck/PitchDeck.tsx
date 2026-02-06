@@ -89,7 +89,7 @@ export const PitchDeck = () => {
   return (
     <div className="relative w-full h-screen bg-background overflow-hidden">
       {/* Slide content */}
-      <div ref={slidesRef} className="w-full h-full">
+      <div ref={slidesRef} data-pdf-slide-root="true" className="w-full h-full">
         <AnimatePresence mode="wait">
           <CurrentSlideComponent key={currentSlide} />
         </AnimatePresence>
@@ -119,9 +119,9 @@ export const PitchDeck = () => {
 
       {/* PDF Export */}
       <div className="fixed top-6 right-6 z-50">
-        <PDFExportButton 
-          slidesRef={slidesRef} 
-          totalSlides={slides.length} 
+        <PDFExportButton
+          slidesRef={slidesRef}
+          totalSlides={slides.length}
           onSlideChange={goToSlideAsync}
         />
       </div>
