@@ -111,7 +111,7 @@ export const gtmStages: GTMStage[] = [
   {
     stage: "Stage 1",
     title: "Land",
-    description: "Environmental consultants and CEQA specialists buy per report"
+    description: "Pilot with 5-10 environmental consultants, convert to paid after demonstrating time and cost savings"
   },
   {
     stage: "Stage 2",
