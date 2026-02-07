@@ -1,5 +1,31 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
 import { Clock, FileCheck, Zap } from "lucide-react";
+import { motion } from "framer-motion";
+import { deckTransition, getStaggerDelay } from "../animations";
+
+const competitors = [
+  {
+    icon: Clock,
+    title: "Traditional Consultants",
+    highlight: false,
+    pros: ["Trusted and comprehensive"],
+    cons: ["Slow (14-56 days)", "Expensive ($15K-$75K)", "Limited scale"]
+  },
+  {
+    icon: Zap,
+    title: "Other AI Tools",
+    highlight: false,
+    pros: ["Fast automation"],
+    cons: ["Generic outputs", "No compliance expertise", "Hallucination risk"]
+  },
+  {
+    icon: FileCheck,
+    title: "TerraFox",
+    highlight: true,
+    pros: ["Instant (<60 seconds)", "Cited & audit-ready", "Jurisdiction-aware", "Repeatable outputs"],
+    cons: []
+  }
+];
 
 export const CompetitionSlide = () => {
   return (
@@ -11,87 +37,60 @@ export const CompetitionSlide = () => {
 
       <SlideContent>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Traditional Consultants */}
-          <div className="bg-card rounded-2xl p-6 border border-border">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center">
-                <Clock className="w-7 h-7 text-muted-foreground" />
-              </div>
-              <h4 className="text-xl font-semibold text-foreground">Traditional Consultants</h4>
-            </div>
-            <div className="space-y-3">
-              <p className="text-base text-foreground flex items-center gap-2">
-                <span className="text-primary">✓</span> Trusted and comprehensive
-              </p>
-              <p className="text-base text-destructive flex items-center gap-2">
-                <span>✗</span> Slow (14-56 days)
-              </p>
-              <p className="text-base text-destructive flex items-center gap-2">
-                <span>✗</span> Expensive ($15K-$75K)
-              </p>
-              <p className="text-base text-destructive flex items-center gap-2">
-                <span>✗</span> Limited scale
-              </p>
-            </div>
-          </div>
-
-          {/* Other AI Tools */}
-          <div className="bg-card rounded-2xl p-6 border border-border">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center">
-                <Zap className="w-7 h-7 text-muted-foreground" />
-              </div>
-              <h4 className="text-xl font-semibold text-foreground">Other AI Tools</h4>
-            </div>
-            <div className="space-y-3">
-              <p className="text-base text-foreground flex items-center gap-2">
-                <span className="text-primary">✓</span> Fast automation
-              </p>
-              <p className="text-base text-destructive flex items-center gap-2">
-                <span>✗</span> Generic outputs
-              </p>
-              <p className="text-base text-destructive flex items-center gap-2">
-                <span>✗</span> No compliance expertise
-              </p>
-              <p className="text-base text-destructive flex items-center gap-2">
-                <span>✗</span> Hallucination risk
-              </p>
-            </div>
-          </div>
-
-          {/* TerraFox */}
-          <div className="bg-primary/10 rounded-2xl p-6 border-2 border-primary">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
-                <FileCheck className="w-7 h-7 text-primary" />
-              </div>
-              <h4 className="text-xl font-semibold text-primary">TerraFox</h4>
-            </div>
-            <div className="space-y-3">
-              <p className="text-base text-foreground flex items-center gap-2">
-                <span className="text-primary">✓</span> Instant (&lt;60 seconds)
-              </p>
-              <p className="text-base text-foreground flex items-center gap-2">
-                <span className="text-primary">✓</span> Cited & audit-ready
-              </p>
-              <p className="text-base text-foreground flex items-center gap-2">
-                <span className="text-primary">✓</span> Jurisdiction-aware
-              </p>
-              <p className="text-base text-foreground flex items-center gap-2">
-                <span className="text-primary">✓</span> Repeatable outputs
-              </p>
-            </div>
-          </div>
+          {competitors.map((comp, index) => {
+            const Icon = comp.icon;
+            return (
+              <motion.div
+                key={comp.title}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: getStaggerDelay(index, 0.2), ...deckTransition }}
+                className={`rounded-2xl p-6 ${
+                  comp.highlight 
+                    ? "bg-primary/10 border-2 border-primary" 
+                    : "bg-card border border-border"
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className={`w-14 h-14 rounded-full flex items-center justify-center ${
+                    comp.highlight ? "bg-primary/20" : "bg-muted"
+                  }`}>
+                    <Icon className={`w-7 h-7 ${comp.highlight ? "text-primary" : "text-muted-foreground"}`} />
+                  </div>
+                  <h4 className={`text-xl font-semibold ${comp.highlight ? "text-primary" : "text-foreground"}`}>
+                    {comp.title}
+                  </h4>
+                </div>
+                <div className="space-y-3">
+                  {comp.pros.map((pro) => (
+                    <p key={pro} className="text-base text-foreground flex items-center gap-2">
+                      <span className="text-primary">✓</span> {pro}
+                    </p>
+                  ))}
+                  {comp.cons.map((con) => (
+                    <p key={con} className="text-base text-destructive flex items-center gap-2">
+                      <span>✗</span> {con}
+                    </p>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Positioning statement */}
-        <div className="mt-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.55, ...deckTransition }}
+          className="mt-10 text-center"
+        >
           <div className="inline-flex items-center gap-3 bg-primary/10 rounded-full px-6 py-3 border border-primary/30">
             <span className="text-lg font-medium text-foreground">
               Speed + Audit Readiness = <span className="text-primary font-bold">TerraFox Advantage</span>
             </span>
           </div>
-        </div>
+        </motion.div>
       </SlideContent>
     </SlideLayout>
   );

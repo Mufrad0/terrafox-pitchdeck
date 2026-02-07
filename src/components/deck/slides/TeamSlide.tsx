@@ -1,6 +1,7 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
 import { proofChips } from "@/data/deckData";
 import { motion } from "framer-motion";
+import { deckTransition, getStaggerDelay } from "../animations";
 import danielPhoto from "@/assets/team-daniel.png";
 import marrissaPhoto from "@/assets/team-marrissa.png";
 import mufradPhoto from "@/assets/team-mufrad.png";
@@ -49,7 +50,7 @@ export const TeamSlide = () => {
               key={member.name}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15 + index * 0.1, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ delay: getStaggerDelay(index, 0.2), ...deckTransition }}
               className="bg-card border border-border rounded-xl p-5"
             >
               <img 
@@ -67,7 +68,7 @@ export const TeamSlide = () => {
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ delay: 0.55, ...deckTransition }}
           className="mb-6"
         >
           <p className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Advisor</p>
@@ -87,7 +88,7 @@ export const TeamSlide = () => {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.55, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ delay: 0.65, ...deckTransition }}
           className="flex flex-wrap gap-2"
         >
           {proofChips.map((chip, index) => (

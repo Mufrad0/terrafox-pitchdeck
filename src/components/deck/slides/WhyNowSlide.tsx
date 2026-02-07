@@ -1,6 +1,7 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
 import { motion } from "framer-motion";
 import { Scale, Clock, Database } from "lucide-react";
+import { deckTransition, getStaggerDelay } from "../animations";
 
 const cards = [
   {
@@ -33,11 +34,14 @@ export const WhyNowSlide = () => {
 
       <SlideContent>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {cards.map((card) => {
+          {cards.map((card, index) => {
             const Icon = card.icon;
             return (
-              <div
+              <motion.div
                 key={card.title}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: getStaggerDelay(index, 0.2), ...deckTransition }}
                 className="bg-card border border-border rounded-2xl p-8"
               >
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
@@ -50,7 +54,7 @@ export const WhyNowSlide = () => {
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{card.description}</p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

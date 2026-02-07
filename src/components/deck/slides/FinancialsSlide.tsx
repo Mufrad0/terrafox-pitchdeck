@@ -2,6 +2,7 @@ import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLa
 import { financials2026, financials2027 } from "@/data/deckData";
 import { motion } from "framer-motion";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, LabelList } from "recharts";
+import { deckTransition, getStaggerDelay } from "../animations";
 
 const chartData = [
   {
@@ -26,9 +27,9 @@ export const FinancialsSlide = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
           {/* Chart */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.2, ...deckTransition }}
           >
             <div className="h-32">
               <ResponsiveContainer width="100%" height="100%">
@@ -58,18 +59,24 @@ export const FinancialsSlide = () => {
 
           {/* 2026 Breakdown */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.32, ...deckTransition }}
             className="bg-card border border-border rounded-xl p-4"
           >
             <h3 className="font-semibold text-foreground mb-2 text-sm">2026E — <span className="text-primary">$620K</span></h3>
             <div className="space-y-1.5">
-              {financials2026.map((item) => (
-                <div key={item.label} className="flex justify-between text-xs">
+              {financials2026.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: getStaggerDelay(index, 0.38), ...deckTransition }}
+                  className="flex justify-between text-xs"
+                >
                   <span className="text-muted-foreground">{item.label}</span>
                   <span className="font-medium text-foreground">${(item.value / 1000).toFixed(0)}K</span>
-                </div>
+                </motion.div>
               ))}
               <div className="border-t border-border pt-1.5 flex justify-between text-xs font-semibold">
                 <span className="text-foreground">Total</span>
@@ -80,18 +87,24 @@ export const FinancialsSlide = () => {
 
           {/* 2027 Breakdown */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.44, ...deckTransition }}
             className="bg-card border border-border rounded-xl p-4"
           >
             <h3 className="font-semibold text-foreground mb-2 text-sm">2027E — <span className="text-primary">$2.1M</span></h3>
             <div className="space-y-1.5">
-              {financials2027.map((item) => (
-                <div key={item.label} className="flex justify-between text-xs">
+              {financials2027.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: getStaggerDelay(index, 0.5), ...deckTransition }}
+                  className="flex justify-between text-xs"
+                >
                   <span className="text-muted-foreground">{item.label}</span>
                   <span className="font-medium text-foreground">${(item.value / 1000).toFixed(0)}K</span>
-                </div>
+                </motion.div>
               ))}
               <div className="border-t border-border pt-1.5 flex justify-between text-xs font-semibold">
                 <span className="text-foreground">Total</span>
