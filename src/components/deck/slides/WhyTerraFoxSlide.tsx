@@ -2,6 +2,7 @@ import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLa
 import { comparisonData } from "@/data/deckData";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import { deckTransition, getStaggerDelay } from "../animations";
 
 export const WhyTerraFoxSlide = () => {
   return (
@@ -13,9 +14,9 @@ export const WhyTerraFoxSlide = () => {
 
       <SlideContent>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.2, ...deckTransition }}
           className="overflow-hidden rounded-xl border border-border"
         >
           <table className="w-full">
@@ -30,9 +31,9 @@ export const WhyTerraFoxSlide = () => {
               {comparisonData.map((row, index) => (
                 <motion.tr
                   key={row.metric}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
+                  transition={{ delay: getStaggerDelay(index, 0.28), ...deckTransition }}
                   className="border-t border-border"
                 >
                   <td className="p-5 font-medium text-foreground">{row.metric}</td>
@@ -50,9 +51,9 @@ export const WhyTerraFoxSlide = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, ...deckTransition }}
           className="mt-6 text-center"
         >
           <p className="text-sm text-muted-foreground mb-1">When comparing 56 days to under 60 seconds:</p>

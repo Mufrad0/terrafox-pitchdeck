@@ -1,5 +1,7 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
 import { Map, Layers, RefreshCw, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
+import { deckTransition, getStaggerDelay } from "../animations";
 
 const advantages = [
   {
@@ -34,11 +36,14 @@ export const MoatSlide = () => {
 
       <SlideContent>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {advantages.map((item) => {
+          {advantages.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div
+              <motion.div
                 key={item.title}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: getStaggerDelay(index, 0.2), ...deckTransition }}
                 className="flex items-start gap-4 bg-card border border-border rounded-xl p-6"
               >
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -48,7 +53,7 @@ export const MoatSlide = () => {
                   <h4 className="text-lg font-semibold text-foreground">{item.title}</h4>
                   <p className="text-sm text-muted-foreground mt-1">{item.text}</p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

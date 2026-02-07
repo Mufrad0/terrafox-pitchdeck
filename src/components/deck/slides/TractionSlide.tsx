@@ -1,5 +1,7 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
 import { CheckCircle2, Target, Calendar, Users, Rocket } from "lucide-react";
+import { motion } from "framer-motion";
+import { deckTransition, getStaggerDelay } from "../animations";
 
 const tractionItems = [
   {
@@ -55,10 +57,20 @@ export const TractionSlide = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Completed Milestones */}
           <div className="space-y-3">
-            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4 font-medium">Completed</p>
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, ...deckTransition }}
+              className="text-xs text-muted-foreground uppercase tracking-widest mb-4 font-medium"
+            >
+              Completed
+            </motion.p>
             {tractionItems.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: getStaggerDelay(index, 0.25), ...deckTransition }}
                 className="flex items-start gap-3 bg-card border border-border rounded-xl p-4"
               >
                 <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -66,16 +78,26 @@ export const TractionSlide = () => {
                   <h4 className="font-semibold text-foreground text-sm mb-0.5">{item.headline}</h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">{item.text}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Next Milestones */}
           <div className="space-y-3">
-            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4 font-medium">Next Milestones</p>
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25, ...deckTransition }}
+              className="text-xs text-muted-foreground uppercase tracking-widest mb-4 font-medium"
+            >
+              Next Milestones
+            </motion.p>
             {nextMilestones.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, x: 16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: getStaggerDelay(index, 0.3), ...deckTransition }}
                 className="flex items-center gap-4 bg-primary/5 border border-primary/20 rounded-xl p-4"
               >
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -87,7 +109,7 @@ export const TractionSlide = () => {
                 <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">
                   {item.timeline}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

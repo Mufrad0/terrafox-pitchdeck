@@ -1,6 +1,8 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
 import { pricingTiers } from "@/data/deckData";
 import { Check, Star } from "lucide-react";
+import { motion } from "framer-motion";
+import { deckTransition, getStaggerDelay } from "../animations";
 
 export const PricingSlide = () => {
   return (
@@ -13,8 +15,11 @@ export const PricingSlide = () => {
       <SlideContent>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
           {pricingTiers.map((tier, index) => (
-            <div
+            <motion.div
               key={tier.name}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: getStaggerDelay(index, 0.2), ...deckTransition }}
               className={`relative bg-card border rounded-xl p-6 ${
                 tier.popular 
                   ? "border-primary ring-2 ring-primary/20" 
@@ -38,14 +43,19 @@ export const PricingSlide = () => {
                 )}
               </p>
               <p className="text-sm text-muted-foreground">{tier.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 rounded-lg px-4 py-3">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.55, ...deckTransition }}
+          className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 rounded-lg px-4 py-3"
+        >
           <Check className="w-4 h-4 text-primary" />
           <span><strong>Teams:</strong> Subscription bundles available for repeat workflows and portfolio monitoring</span>
-        </div>
+        </motion.div>
       </SlideContent>
     </SlideLayout>
   );

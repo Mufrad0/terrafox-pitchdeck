@@ -1,6 +1,7 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
 import { MapPin, FileCheck, Flame, Droplets, TreeDeciduous, Scale, Mountain, Zap, Clock, Shield } from "lucide-react";
 import { motion } from "framer-motion";
+import { deckTransition, getStaggerDelay } from "../animations";
 
 const riskLayers = [
   { icon: Droplets, label: "Flood" },
@@ -34,9 +35,9 @@ export const SolutionSlide = () => {
           <div className="space-y-6">
             {/* Input */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ delay: 0.2, ...deckTransition }}
               className="bg-card border border-border rounded-2xl p-6"
             >
               <div className="flex items-start gap-4">
@@ -54,7 +55,7 @@ export const SolutionSlide = () => {
             <motion.div
               initial={{ opacity: 0, scaleY: 0 }}
               animate={{ opacity: 1, scaleY: 1 }}
-              transition={{ delay: 0.25, duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ delay: 0.32, duration: 0.3, ease: deckTransition.ease }}
               className="flex justify-center origin-top"
             >
               <div className="w-0.5 h-8 bg-primary/30 relative">
@@ -64,9 +65,9 @@ export const SolutionSlide = () => {
 
             {/* Output */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.35, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ delay: 0.4, ...deckTransition }}
               className="bg-primary/10 border-2 border-primary rounded-2xl p-6"
             >
               <div className="flex items-start gap-4">
@@ -85,15 +86,15 @@ export const SolutionSlide = () => {
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ delay: 0.52, ...deckTransition }}
               className="flex gap-3 justify-center"
             >
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={benefit.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.55 + index * 0.08, duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                  transition={{ delay: getStaggerDelay(index, 0.56), ...deckTransition }}
                   className="flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-full"
                 >
                   <benefit.icon className="w-4 h-4 text-primary" />
@@ -109,16 +110,16 @@ export const SolutionSlide = () => {
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ delay: 0.25, ...deckTransition }}
             >
               <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3 font-medium">Risk Layers Analyzed</p>
               <div className="grid grid-cols-2 gap-2">
                 {riskLayers.map((layer, index) => (
                   <motion.div
                     key={layer.label}
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 0, scale: 0.96 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3 + index * 0.08, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                    transition={{ delay: getStaggerDelay(index, 0.32), ...deckTransition }}
                     className="flex items-center gap-3 px-4 py-3 bg-card border border-border rounded-xl"
                   >
                     <layer.icon className="w-5 h-5 text-primary" />
@@ -132,16 +133,16 @@ export const SolutionSlide = () => {
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ delay: 0.5, ...deckTransition }}
             >
               <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3 font-medium">Jurisdiction Coverage</p>
               <div className="grid grid-cols-2 gap-4">
                 {Object.entries(jurisdictions).map(([country, levels], countryIndex) => (
                   <motion.div
                     key={country}
-                    initial={{ opacity: 0, x: 10 }}
+                    initial={{ opacity: 0, x: 12 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6 + countryIndex * 0.1, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                    transition={{ delay: getStaggerDelay(countryIndex, 0.55), ...deckTransition }}
                     className="space-y-2"
                   >
                     <p className="text-sm font-semibold text-primary">{country}</p>
@@ -151,7 +152,7 @@ export const SolutionSlide = () => {
                           key={level}
                           initial={{ opacity: 0, x: 8 }}
                           animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.65 + countryIndex * 0.1 + levelIndex * 0.05, duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                          transition={{ delay: getStaggerDelay(levelIndex, 0.6 + countryIndex * 0.08), ...deckTransition }}
                           className="flex items-center gap-2 px-3 py-2 bg-primary/10 border border-primary/20 rounded-lg"
                         >
                           <Scale className="w-4 h-4 text-primary" />

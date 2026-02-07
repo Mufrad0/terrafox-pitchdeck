@@ -2,6 +2,7 @@ import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLa
 import { useOfFunds } from "@/data/deckData";
 import { motion } from "framer-motion";
 import { Mail, Globe } from "lucide-react";
+import { deckTransition, getStaggerDelay } from "../animations";
 
 export const AskSlide = () => {
   return (
@@ -16,9 +17,9 @@ export const AskSlide = () => {
           {/* Left: Investment Terms + Contact */}
           <div className="space-y-4">
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ delay: 0.2, ...deckTransition }}
               className="bg-primary/5 border border-primary rounded-xl p-5"
             >
               <div className="grid grid-cols-3 gap-4">
@@ -38,9 +39,9 @@ export const AskSlide = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ delay: 0.32, ...deckTransition }}
               className="bg-accent rounded-xl p-3 md:p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-0"
             >
               <div className="flex items-center gap-2 md:gap-3">
@@ -56,15 +57,21 @@ export const AskSlide = () => {
 
           {/* Right: Use of Funds */}
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ delay: 0.4, ...deckTransition }}
             className="bg-card border border-border rounded-xl p-5"
           >
             <h3 className="font-semibold text-foreground mb-3 text-sm">Use of Funds</h3>
             <div className="space-y-2">
               {useOfFunds.map((item, index) => (
-                <div key={item.label} className="flex items-start gap-2">
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: getStaggerDelay(index, 0.45), ...deckTransition }}
+                  className="flex items-start gap-2"
+                >
                   <div className="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold flex-shrink-0">
                     {index + 1}
                   </div>
@@ -72,7 +79,7 @@ export const AskSlide = () => {
                     <p className="font-medium text-foreground text-xs">{item.label}</p>
                     <p className="text-xs text-muted-foreground">{item.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
