@@ -41,10 +41,24 @@ interface SlideTitleProps {
 export const SlideTitle = ({ children, className = "" }: SlideTitleProps) => {
   const isExporting = document.body.classList.contains('pdf-exporting');
   const trackingClass = isExporting ? 'tracking-normal' : 'tracking-tight';
+  
+  if (isExporting) {
+    return (
+      <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-foreground ${trackingClass} mb-3 ${className}`}>
+        {children}
+      </h1>
+    );
+  }
+
   return (
-    <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-foreground ${trackingClass} mb-3 ${className}`}>
+    <motion.h1
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.05, ...deckTransition }}
+      className={`text-4xl md:text-5xl lg:text-6xl font-bold text-foreground ${trackingClass} mb-3 ${className}`}
+    >
       {children}
-    </h1>
+    </motion.h1>
   );
 };
 
@@ -76,9 +90,14 @@ export const SlideTakeaway = ({ children }: SlideTakeawayProps) => {
   }
 
   return (
-    <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mt-2 mb-10 max-w-4xl leading-relaxed">
+    <motion.p
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.12, ...deckTransition }}
+      className="text-lg md:text-xl lg:text-2xl text-muted-foreground mt-2 mb-10 max-w-4xl leading-relaxed"
+    >
       {children}
-    </p>
+    </motion.p>
   );
 };
 
@@ -88,7 +107,12 @@ interface SlideContentProps {
 }
 
 export const SlideContent = ({ children, className = "" }: SlideContentProps) => (
-  <div className={`flex-1 flex flex-col justify-center ${className}`}>
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.18, duration: 0.4, ease: deckTransition.ease }}
+    className={`flex-1 flex flex-col justify-center ${className}`}
+  >
     {children}
-  </div>
+  </motion.div>
 );
