@@ -8,7 +8,6 @@ interface SlideLayoutProps {
 }
 
 export const SlideLayout = ({ children, className = "" }: SlideLayoutProps) => {
-  // Check if we're in PDF export mode (set by PDFExportButton)
   const isExporting = document.body.classList.contains('pdf-exporting');
   
   if (isExporting) {
@@ -39,31 +38,68 @@ interface SlideTitleProps {
   className?: string;
 }
 
-export const SlideTitle = ({ children, className = "" }: SlideTitleProps) => (
-  <motion.h1
-    initial={{ opacity: 0, y: 12 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.05, ...deckTransition }}
-    className={`text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight mb-3 ${className}`}
-  >
-    {children}
-  </motion.h1>
-);
+export const SlideTitle = ({ children, className = "" }: SlideTitleProps) => {
+  const isExporting = document.body.classList.contains('pdf-exporting');
+  const trackingClass = isExporting ? 'tracking-normal' : 'tracking-tight';
+  
+  if (isExporting) {
+    return (
+      <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-foreground ${trackingClass} mb-3 ${className}`}>
+        {children}
+      </h1>
+    );
+  }
+
+  return (
+    <motion.h1
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.05, ...deckTransition }}
+      className={`text-4xl md:text-5xl lg:text-6xl font-bold text-foreground ${trackingClass} mb-3 ${className}`}
+    >
+      {children}
+    </motion.h1>
+  );
+};
 
 interface SlideTakeawayProps {
   children: ReactNode;
 }
 
-export const SlideTakeaway = ({ children }: SlideTakeawayProps) => (
-  <motion.p
-    initial={{ opacity: 0, y: 12 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.12, ...deckTransition }}
-    className="text-lg md:text-xl lg:text-2xl text-muted-foreground mt-2 mb-10 max-w-4xl leading-relaxed"
-  >
-    {children}
-  </motion.p>
-);
+export const SlideTakeaway = ({ children }: SlideTakeawayProps) => {
+  const isExporting = document.body.classList.contains('pdf-exporting');
+
+  // During PDF export, wrap each word in its own span so html2canvas
+  // positions each word as a separate element instead of trying to
+  // measure character positions within a single text node (which causes
+  // spaces to collapse and words to merge together).
+  if (isExporting && typeof children === 'string') {
+    const words = children.split(/\s+/).filter(Boolean);
+    return (
+      <p
+        className="text-lg md:text-xl lg:text-2xl text-muted-foreground mt-2 mb-10 max-w-4xl"
+        style={{ lineHeight: '1.625', display: 'flex', flexWrap: 'wrap' }}
+      >
+        {words.map((word, i) => (
+          <span key={i} style={{ marginRight: '0.3em', whiteSpace: 'nowrap' }}>
+            {word}
+          </span>
+        ))}
+      </p>
+    );
+  }
+
+  return (
+    <motion.p
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.12, ...deckTransition }}
+      className="text-lg md:text-xl lg:text-2xl text-muted-foreground mt-2 mb-10 max-w-4xl leading-relaxed"
+    >
+      {children}
+    </motion.p>
+  );
+};
 
 interface SlideContentProps {
   children: ReactNode;
