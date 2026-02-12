@@ -2,13 +2,10 @@ import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLa
 import { proofChips } from "@/data/deckData";
 import { motion } from "framer-motion";
 import { deckTransition, getStaggerDelay } from "../animations";
-import { MapPin, FileCheck, DollarSign, Users } from "lucide-react";
 import danielPhoto from "@/assets/team-daniel.png";
 import marrissaPhoto from "@/assets/team-marrissa.png";
 import mufradPhoto from "@/assets/team-mufrad.png";
 import paulPhoto from "@/assets/team-paul.png";
-import terrafoxLogoBlack from "@/assets/terrafox-logo-black.png";
-import terrafoxLogoGreen from "@/assets/terrafox-logo-green.png";
 
 const founders = [
   {
@@ -33,45 +30,24 @@ const founders = [
     name: "Mohammad Mufrad Chowdhury",
     role: "Co-founder, Finance, Pricing & GTM",
     bullets: [
-      "Economics & Statistics, London School of Economics",
+      "Economics & Statistics, London School of Economics; Grinnell College",
       "Owns pricing, fundraising, partnerships, distribution"
     ],
     photo: mufradPhoto
   }
 ];
 
-const coverageChips = [
-  { label: "Jurisdictions & permitting workflows", icon: MapPin },
-  { label: "Evidence, citations, audit readiness", icon: FileCheck },
-  { label: "Pricing & packaging", icon: DollarSign },
-  { label: "Distribution & partnerships", icon: Users },
-];
-
 export const TeamSlide = () => {
   return (
     <SlideLayout>
-      {/* Header with logos */}
-      <div className="flex items-start justify-between">
-        <div>
-          <SlideTitle>Team</SlideTitle>
-          <SlideTakeaway>
-            Built across geospatial workflows, environmental compliance execution, and pricing-led go-to-market.
-          </SlideTakeaway>
-        </div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, ...deckTransition }}
-          className="hidden md:flex items-center gap-3 shrink-0 mt-2"
-        >
-          <img src={terrafoxLogoBlack} alt="TerraFox" className="h-8 w-8 opacity-60" />
-          <img src={terrafoxLogoGreen} alt="TerraFox" className="h-8 w-8 opacity-60" />
-        </motion.div>
-      </div>
+      <SlideTitle>Team</SlideTitle>
+      <SlideTakeaway>
+        Built across geospatial workflows, environmental compliance execution, and pricing-led go-to-market.
+      </SlideTakeaway>
 
       <SlideContent>
         {/* Founder cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
           {founders.map((member, index) => (
             <motion.div
               key={member.name}
@@ -99,44 +75,42 @@ export const TeamSlide = () => {
           ))}
         </div>
 
-        {/* Advisor strip */}
+        {/* Advisor strip - same style as before */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55, ...deckTransition }}
-          className="flex items-center gap-3 px-4 py-2.5 bg-muted/50 rounded-lg border border-border mb-5"
+          className="mb-6"
         >
-          <img
-            src={paulPhoto}
-            alt="Paul Bozzo"
-            className="w-9 h-9 rounded-full object-cover shrink-0"
-          />
-          <p className="text-sm text-foreground">
-            <span className="text-muted-foreground">Advisor:</span>{" "}
-            <span className="font-medium">Paul Bozzo</span>
-            <span className="text-muted-foreground"> · Startup strategy & fundraising, Tech Futures Group</span>
-          </p>
+          <p className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Advisor</p>
+          <div className="flex items-center gap-3">
+            <img
+              src={paulPhoto}
+              alt="Paul Bozzo"
+              className="w-12 h-12 rounded-full object-cover"
+            />
+            <div>
+              <h4 className="font-semibold text-foreground text-sm">Paul Bozzo</h4>
+              <p className="text-xs text-muted-foreground">Startup strategy and fundraising, execution support</p>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Coverage chips */}
+        {/* Proof chips - original style */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65, ...deckTransition }}
           className="flex flex-wrap gap-2"
         >
-          {coverageChips.map((chip, index) => {
-            const Icon = chip.icon;
-            return (
-              <span
-                key={index}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 text-primary text-xs rounded-full"
-              >
-                <Icon className="w-3.5 h-3.5" />
-                {chip.label}
-              </span>
-            );
-          })}
+          {proofChips.map((chip, index) => (
+            <span
+              key={index}
+              className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full"
+            >
+              {chip}
+            </span>
+          ))}
         </motion.div>
       </SlideContent>
     </SlideLayout>
