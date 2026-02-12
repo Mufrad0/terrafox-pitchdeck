@@ -74,7 +74,7 @@ export const TeamSlide = () => {
           ))}
         </div>
 
-        {/* Advisor strip - same style as before */}
+        {/* Advisor strip */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -82,16 +82,16 @@ export const TeamSlide = () => {
           className="mb-6"
         >
           <p className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Advisor</p>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4 bg-primary/5 border border-primary/20 rounded-xl px-5 py-4">
             <img
               src={paulPhoto}
               alt="Paul Bozzo"
-              className="w-12 h-12 rounded-full object-cover"
+              className="w-12 h-12 rounded-full object-cover ring-2 ring-primary/30"
             />
-            <div>
+            <div className="flex-1">
               <h4 className="font-semibold text-foreground text-sm">Paul Bozzo</h4>
-              <p className="text-xs text-muted-foreground">25+ years in startup strategy and fundraising</p>
-              <p className="text-xs text-muted-foreground">Supports fundraising narrative and GTM execution, reaching 20K MRR</p>
+              <p className="text-xs text-primary font-medium mt-0.5">25+ years in startup strategy and fundraising</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Supports fundraising narrative and GTM execution, reaching 20K MRR</p>
             </div>
           </div>
         </motion.div>
