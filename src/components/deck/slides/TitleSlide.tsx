@@ -27,7 +27,7 @@ export const TitleSlide = () => {
           transition={{ delay: 0.25, ...deckTransition }}
           className="text-2xl md:text-3xl lg:text-4xl text-foreground font-medium mb-4"
         >
-          Instant Environmental Compliance Intelligence
+          Compliance Intelligence That Works for You
         </motion.h2>
         
         <motion.p

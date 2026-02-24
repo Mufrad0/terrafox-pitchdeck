@@ -156,7 +156,7 @@ export const useOfFunds = [
 export const comparisonData = [
   { metric: "Speed", traditional: "14–56 days", terrafox: "< 60 seconds" },
   { metric: "Cost", traditional: "$15K–$75K", terrafox: "$199–$2,499" },
-  { metric: "Capacity", traditional: "10–20/month", terrafox: "24/7 scale" },
+  
   { metric: "Quality", traditional: "Inconsistent", terrafox: "Cited, audit-ready" }
 ];
 

@@ -9,7 +9,7 @@ export const PricingSlide = () => {
     <SlideLayout>
       <SlideTitle>Pricing</SlideTitle>
       <SlideTakeaway>
-        Per-report pricing plus subscriptions for teams, plus enterprise volume.
+        Pricing that scales with your team.
       </SlideTakeaway>
 
       <SlideContent>
