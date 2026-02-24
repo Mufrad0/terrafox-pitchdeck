@@ -9,7 +9,7 @@ const competitors = [
     title: "Traditional Consultants",
     highlight: false,
     pros: ["Trusted and comprehensive"],
-    cons: ["Slow (14-56 days)", "Expensive ($15K-$75K)", "Limited scale"]
+    cons: ["Slow (14-56 days)", "Expensive ($15K-$75K)"]
   },
   {
     icon: Zap,

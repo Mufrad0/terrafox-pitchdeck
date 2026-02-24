@@ -26,7 +26,7 @@ export const SolutionSlide = () => {
     <SlideLayout>
       <SlideTitle>The Solution</SlideTitle>
       <SlideTakeaway>
-        Instant, cited, audit-ready environmental reports in under 60 seconds.
+        Cited, audit-ready environmental reports in under 60 seconds.
       </SlideTakeaway>
 
       <SlideContent>
