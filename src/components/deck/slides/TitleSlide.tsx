@@ -25,9 +25,9 @@ export const TitleSlide = () => {
           initial={{ y: 12, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.25, ...deckTransition }}
-          className="text-2xl md:text-3xl lg:text-4xl text-foreground font-medium mb-5 md:mb-6"
+          className="text-lg md:text-xl text-muted-foreground font-medium mb-5 md:mb-6"
         >
-          Compliance Intelligence That Works for You
+          Environmental Compliance, Simplified
         </motion.h2>
         
         <motion.p
