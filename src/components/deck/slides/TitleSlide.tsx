@@ -11,11 +11,11 @@ export const TitleSlide = () => {
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.6, ease: deckTransition.ease }}
-          className="mb-8"
+          className="mb-12 md:mb-16"
         >
-          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-6">
-            <img src={terrafoxLogo} alt="TerraFox" className="w-14 h-14 md:w-20 md:h-20" />
-            <span className="text-4xl md:text-7xl font-bold text-foreground tracking-tight text-center">
+          <div className="flex flex-row items-center justify-center gap-4 md:gap-5">
+            <img src={terrafoxLogo} alt="TerraFox" className="w-16 h-16 md:w-24 md:h-24" />
+            <span className="text-5xl md:text-8xl font-bold text-foreground tracking-tight">
               TerraFox
             </span>
           </div>
@@ -25,7 +25,7 @@ export const TitleSlide = () => {
           initial={{ y: 12, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.25, ...deckTransition }}
-          className="text-2xl md:text-3xl lg:text-4xl text-foreground font-medium mb-4"
+          className="text-2xl md:text-3xl lg:text-4xl text-foreground font-medium mb-5 md:mb-6"
         >
           Compliance Intelligence That Works for You
         </motion.h2>
