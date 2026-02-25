@@ -11,11 +11,11 @@ export const TitleSlide = () => {
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.6, ease: deckTransition.ease }}
-          className="mb-12 md:mb-16"
+          className="mb-8"
         >
-          <div className="flex flex-row items-center justify-center gap-4 md:gap-5">
-            <img src={terrafoxLogo} alt="TerraFox" className="w-16 h-16 md:w-24 md:h-24" />
-            <span className="text-5xl md:text-8xl font-bold text-foreground tracking-tight">
+          <div className="flex flex-row items-center justify-center gap-3 md:gap-4">
+            <img src={terrafoxLogo} alt="TerraFox" className="w-14 h-14 md:w-20 md:h-20" />
+            <span className="text-4xl md:text-7xl font-bold text-foreground tracking-tight">
               TerraFox
             </span>
           </div>
