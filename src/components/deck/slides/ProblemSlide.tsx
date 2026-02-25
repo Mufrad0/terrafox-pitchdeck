@@ -1,12 +1,11 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
 import { motion } from "framer-motion";
-import { Clock, DollarSign, Users, AlertTriangle, Scale } from "lucide-react";
+import { Clock, DollarSign, AlertTriangle, Scale } from "lucide-react";
 import { deckTransition, getStaggerDelay } from "../animations";
 
 const stats = [
   { icon: Clock, label: "Turnaround", value: "14–56 days" },
   { icon: DollarSign, label: "Cost", value: "$15K–$75K" },
-  { icon: Users, label: "Consultant Capacity", value: "10–20/month" },
   { icon: Scale, label: "Regulation Pressure", value: "Growing" }
 ];
 
@@ -35,7 +34,7 @@ export const ProblemSlide = () => {
           Every construction project needs environmental screening and compliance documentation.
         </motion.p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 mb-8">
+        <div className="grid grid-cols-3 gap-3 md:gap-5 mb-8">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
