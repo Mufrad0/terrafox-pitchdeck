@@ -46,7 +46,7 @@ export const AskSlide = () => {
             >
               <div className="flex items-center gap-2 md:gap-3">
                 <Mail className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
-                <span className="text-foreground text-xs md:text-sm font-medium break-all md:break-normal">daniel.guzman@terrafox.site</span>
+                <span className="text-foreground text-xs md:text-sm font-medium break-all md:break-normal">daniel@terrafox.site</span>
               </div>
               <div className="flex items-center gap-2 md:gap-3">
                 <Globe className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
