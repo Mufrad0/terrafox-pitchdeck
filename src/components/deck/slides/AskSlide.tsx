@@ -46,11 +46,11 @@ export const AskSlide = () => {
 
               <div className="flex items-center gap-2 md:gap-3">
                 <Mail className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
-                <span className="text-foreground text-xs md:text-sm font-medium break-all md:break-normal">daniel@terrafox.site</span>
+                <a href="mailto:daniel@terrafox.site" className="text-foreground text-xs md:text-sm font-medium break-all md:break-normal hover:text-primary transition-colors underline">daniel@terrafox.site</a>
               </div>
               <div className="flex items-center gap-2 md:gap-3">
                 <Globe className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
-                <span className="text-foreground text-xs md:text-sm font-medium">terrafox.site</span>
+                <a href="https://terrafox.site" target="_blank" rel="noopener noreferrer" className="text-foreground text-xs md:text-sm font-medium hover:text-primary transition-colors underline">terrafox.site</a>
               </div>
             </motion.div>
           </div>
