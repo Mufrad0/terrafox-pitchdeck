@@ -11,7 +11,7 @@ const founders = [
     name: "Daniel Guzman",
     role: "CEO, Product & Geospatial Automation",
     bullets: [
-      "Former Earth System Science and Geospatial Representation Research Assistant at UC Berkeley",
+      "Sustainability Researcher at RetailX, former Berkeley researcher on charcoal taphonomy in depositional environments",
       "Manages permitting workflow design and automation roadmap"
     ],
     photo: danielPhoto
@@ -20,7 +20,7 @@ const founders = [
     name: "Marissa Ponce",
     role: "COO, Operations & Compliance Execution",
     bullets: [
-      "Environmental Economics and Policy and Sustainable Environmental Design at UC Berkeley",
+      "ESG Sustainability Analyst from Lawrence Berkeley National Laboratory (former DOE)",
       "Manages UI/UX, evidence capture, QA, audit-ready process"
     ],
     photo: marrissaPhoto

@@ -104,7 +104,7 @@ export const SolutionSlide = () => {
             </motion.div>
           </div>
 
-          {/* Right: What TerraFox analyzes */}
+          {/* Right: What Terrafox analyzes */}
           <div className="space-y-6">
             {/* Risk Layers */}
             <motion.div

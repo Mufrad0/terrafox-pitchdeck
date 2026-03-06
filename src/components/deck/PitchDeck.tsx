@@ -26,7 +26,7 @@ const slides = [
   ProblemSlide,
   SolutionSlide,
   ProductSlide,
-  WhyTerraFoxSlide,
+  WhyTerrafoxSlide,
   PricingSlide,
   MarketSlide,
   CompetitionSlide,

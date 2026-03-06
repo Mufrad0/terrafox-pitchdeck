@@ -5,7 +5,7 @@ import { deckTransition, getStaggerDelay } from "../animations";
 
 const steps = [
   { number: "1", icon: MapPin, text: "Enter site and jurisdiction" },
-  { number: "2", icon: Cpu, text: "TerraFox runs geospatial analytics and compliance checks" },
+  { number: "2", icon: Cpu, text: "Terrafox runs geospatial analytics and compliance checks" },
   { number: "3", icon: Download, text: "Download a cited report, ready for review and filing" }
 ];
 

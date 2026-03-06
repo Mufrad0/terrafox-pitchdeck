@@ -24,7 +24,7 @@ export const WhyTerrafoxSlide = () => {
               <tr className="bg-muted">
                 <th className="text-left p-5 font-semibold text-foreground">Metric</th>
                 <th className="text-left p-5 font-semibold text-muted-foreground">Traditional</th>
-                <th className="text-left p-5 font-semibold text-primary bg-primary/5">TerraFox</th>
+                <th className="text-left p-5 font-semibold text-primary bg-primary/5">Terrafox</th>
               </tr>
             </thead>
             <tbody>

@@ -14,9 +14,9 @@ export const TitleSlide = () => {
           className="mb-4 md:mb-5"
         >
           <div className="flex flex-row items-center justify-center gap-3 md:gap-4">
-            <img src={terrafoxLogo} alt="TerraFox" className="w-14 h-14 md:w-20 md:h-20" />
+            <img src={terrafoxLogo} alt="Terrafox" className="w-14 h-14 md:w-20 md:h-20" />
             <span className="text-4xl md:text-7xl font-bold text-foreground tracking-tight">
-              TerraFox
+              Terrafox
             </span>
           </div>
         </motion.div>

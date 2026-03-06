@@ -87,7 +87,7 @@ export const CompetitionSlide = () => {
         >
           <div className="inline-flex items-center gap-3 bg-primary/10 rounded-full px-6 py-3 border border-primary/30">
             <span className="text-lg font-medium text-foreground">
-              Speed + Audit Readiness = <span className="text-primary font-bold">TerraFox Advantage</span>
+              Speed + Audit Readiness = <span className="text-primary font-bold">Terrafox Advantage</span>
             </span>
           </div>
         </motion.div>
