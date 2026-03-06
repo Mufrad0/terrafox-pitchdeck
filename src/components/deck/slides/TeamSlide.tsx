@@ -20,7 +20,7 @@ const founders = [
     name: "Marissa Ponce",
     role: "COO, Operations & Compliance Execution",
     bullets: [
-      "ESG Sustainability Analyst from Lawrence Berkeley National Laboratory (former DOE)",
+      "Former ESG Sustainability Analyst at Lawrence Berkeley National Laboratory (DOE)",
       "Manages UI/UX, evidence capture, QA, audit-ready process"
     ],
     photo: marrissaPhoto
