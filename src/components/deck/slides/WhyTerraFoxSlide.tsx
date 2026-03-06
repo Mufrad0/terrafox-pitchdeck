@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { deckTransition, getStaggerDelay } from "../animations";
 
-export const WhyTerraFoxSlide = () => {
+export const WhyTerrafoxSlide = () => {
   return (
     <SlideLayout>
       <SlideTitle>Why TerraFox</SlideTitle>
