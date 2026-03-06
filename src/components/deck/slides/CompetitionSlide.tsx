@@ -32,7 +32,7 @@ export const CompetitionSlide = () => {
     <SlideLayout>
       <SlideTitle>Competitive Landscape</SlideTitle>
       <SlideTakeaway>
-        Incumbents have relationships. TerraFox wins on speed, repeatability, and audit trail.
+        Incumbents have relationships. Terrafox wins on speed, repeatability, and audit trail.
       </SlideTakeaway>
 
       <SlideContent>
