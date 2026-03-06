@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { deckTransition, getStaggerDelay } from "../animations";
 
-export const WhyTerraFoxSlide = () => {
+export const WhyTerrafoxSlide = () => {
   return (
     <SlideLayout>
-      <SlideTitle>Why TerraFox</SlideTitle>
+      <SlideTitle>Why Terrafox</SlideTitle>
       <SlideTakeaway>
         Weeks to minutes, expensive assessments to affordable reports, limited capacity to always-on scale.
       </SlideTakeaway>
@@ -24,7 +24,7 @@ export const WhyTerraFoxSlide = () => {
               <tr className="bg-muted">
                 <th className="text-left p-5 font-semibold text-foreground">Metric</th>
                 <th className="text-left p-5 font-semibold text-muted-foreground">Traditional</th>
-                <th className="text-left p-5 font-semibold text-primary bg-primary/5">TerraFox</th>
+                <th className="text-left p-5 font-semibold text-primary bg-primary/5">Terrafox</th>
               </tr>
             </thead>
             <tbody>

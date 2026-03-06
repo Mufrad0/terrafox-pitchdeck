@@ -153,7 +153,7 @@ export const PDFExportButton = ({
 
       document.body.removeChild(offscreen);
       await onSlideChange(0);
-      pdf.save("TerraFox-Pitch-Deck.pdf");
+      pdf.save("Terrafox-Pitch-Deck.pdf");
     } catch (error) {
       console.error("Error exporting PDF:", error);
     } finally {

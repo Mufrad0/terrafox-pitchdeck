@@ -8,7 +8,7 @@ import { TeamSlide } from "./slides/TeamSlide";
 import { ProblemSlide } from "./slides/ProblemSlide";
 import { SolutionSlide } from "./slides/SolutionSlide";
 import { ProductSlide } from "./slides/ProductSlide";
-import { WhyTerraFoxSlide } from "./slides/WhyTerraFoxSlide";
+import { WhyTerrafoxSlide } from "./slides/WhyTerraFoxSlide";
 import { PricingSlide } from "./slides/PricingSlide";
 import { MarketSlide } from "./slides/MarketSlide";
 import { CompetitionSlide } from "./slides/CompetitionSlide";
@@ -26,7 +26,7 @@ const slides = [
   ProblemSlide,
   SolutionSlide,
   ProductSlide,
-  WhyTerraFoxSlide,
+  WhyTerrafoxSlide,
   PricingSlide,
   MarketSlide,
   CompetitionSlide,
