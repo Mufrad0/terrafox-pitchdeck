@@ -20,7 +20,7 @@ const competitors = [
   },
   {
     icon: FileCheck,
-    title: "TerraFox",
+    title: "Terrafox",
     highlight: true,
     pros: ["Instant (<60 seconds)", "Cited & audit-ready", "Jurisdiction-aware", "Repeatable outputs"],
     cons: []
