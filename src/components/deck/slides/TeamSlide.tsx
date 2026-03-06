@@ -29,7 +29,7 @@ const founders = [
     name: "Mohammad Mufrad Chowdhury",
     role: "Co-founder, Finance, Pricing & GTM",
     bullets: [
-      "Economics & Statistics, London School of Economics; Grinnell College",
+      "Former Junior Consultant at 3di; Economics & Statistics at Grinnell College and London School of Economics",
       "Manages pricing, fundraising, partnerships, distribution"
     ],
     photo: mufradPhoto
