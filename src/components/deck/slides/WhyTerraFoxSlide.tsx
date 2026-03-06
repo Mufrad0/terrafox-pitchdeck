@@ -7,7 +7,7 @@ import { deckTransition, getStaggerDelay } from "../animations";
 export const WhyTerrafoxSlide = () => {
   return (
     <SlideLayout>
-      <SlideTitle>Why TerraFox</SlideTitle>
+      <SlideTitle>Why Terrafox</SlideTitle>
       <SlideTakeaway>
         Weeks to minutes, expensive assessments to affordable reports, limited capacity to always-on scale.
       </SlideTakeaway>
