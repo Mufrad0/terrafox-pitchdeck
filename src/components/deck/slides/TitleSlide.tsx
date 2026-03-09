@@ -11,7 +11,7 @@ export const TitleSlide = () => {
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.6, ease: deckTransition.ease }}
-          className="mb-4 md:mb-5"
+          className="mb-6 md:mb-8"
         >
           <div className="flex flex-row items-center justify-center gap-3 md:gap-4">
             <img src={terrafoxLogo} alt="Terrafox" className="w-14 h-14 md:w-20 md:h-20" />
@@ -25,7 +25,7 @@ export const TitleSlide = () => {
           initial={{ y: 12, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.25, ...deckTransition }}
-          className="text-xl md:text-2xl text-muted-foreground font-normal mb-6 md:mb-8"
+          className="text-xl md:text-2xl text-muted-foreground font-normal mb-8 md:mb-10"
         >
           Environmental Compliance, Simplified
         </motion.p>
@@ -34,7 +34,7 @@ export const TitleSlide = () => {
           initial={{ y: 12, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.35, ...deckTransition }}
-          className="text-sm md:text-base text-muted-foreground/70 tracking-widest uppercase mb-4"
+          className="text-sm md:text-base text-muted-foreground/70 tracking-widest uppercase mb-3"
         >
           Pre-Seed · Q1 2026
         </motion.p>
