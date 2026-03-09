@@ -31,7 +31,7 @@ export const TitleSlide = () => {
         </motion.p>
         
         <motion.a
-          href="https://www.terrafox.app"
+          href="https://www.terrafox.site"
           target="_blank"
           rel="noopener noreferrer"
           initial={{ y: 12, opacity: 0 }}
@@ -39,7 +39,7 @@ export const TitleSlide = () => {
           transition={{ delay: 0.35, ...deckTransition }}
           className="text-sm md:text-base text-primary hover:text-primary/80 font-medium mb-6 md:mb-8 transition-colors"
         >
-          www.terrafox.app
+          www.terrafox.site
         </motion.a>
 
         <motion.p
