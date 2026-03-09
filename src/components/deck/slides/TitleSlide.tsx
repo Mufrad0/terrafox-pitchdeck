@@ -39,7 +39,7 @@ export const TitleSlide = () => {
           transition={{ delay: 0.35, ...deckTransition }}
           className="text-sm md:text-base text-primary hover:text-primary/80 font-medium mb-6 md:mb-8 transition-colors"
         >
-          www.terrafox.app
+          www.terrafox.site
         </motion.a>
 
         <motion.p
