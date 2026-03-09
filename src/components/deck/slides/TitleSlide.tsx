@@ -30,26 +30,26 @@ export const TitleSlide = () => {
           Environmental Compliance, Simplified
         </motion.p>
         
+        <motion.p
+          initial={{ y: 12, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.35, ...deckTransition }}
+          className="text-sm md:text-base text-muted-foreground/70 tracking-widest uppercase mb-4"
+        >
+          Pre-Seed · Q1 2026
+        </motion.p>
+
         <motion.a
           href="https://www.terrafox.site"
           target="_blank"
           rel="noopener noreferrer"
           initial={{ y: 12, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.35, ...deckTransition }}
-          className="text-sm md:text-base text-primary hover:text-primary/80 font-medium mb-6 md:mb-8 transition-colors"
+          transition={{ delay: 0.45, ...deckTransition }}
+          className="text-sm md:text-base text-primary hover:text-primary/80 font-medium transition-colors"
         >
           www.terrafox.site
         </motion.a>
-
-        <motion.p
-          initial={{ y: 12, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.45, ...deckTransition }}
-          className="text-sm md:text-base text-muted-foreground/70 tracking-widest uppercase"
-        >
-          Pre-Seed · Q1 2026
-        </motion.p>
       </SlideContent>
     </SlideLayout>
   );
