@@ -31,7 +31,7 @@ export const TitleSlide = () => {
         </motion.p>
         
         <motion.a
-          href="https://www.terrafox.app"
+          href="https://www.terrafox.site"
           target="_blank"
           rel="noopener noreferrer"
           initial={{ y: 12, opacity: 0 }}
