@@ -103,7 +103,7 @@ export const MarketSlide = () => {
           className="mt-4 pt-3 border-t border-border"
         >
           <p className="text-xs text-muted-foreground">
-            Sources: IBISWorld (2025); EPA CEQA/NEPA Compliance Data; Grand View Research; Precedence Research
+            Sources: IBISWorld (2025); EPA CEQA/NEPA Compliance Data; Grand View Research; Precedence Research; SEMARNAT
           </p>
         </motion.div>
       </SlideContent>
