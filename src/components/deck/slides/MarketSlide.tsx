@@ -7,7 +7,7 @@ export const MarketSlide = () => {
     <SlideLayout>
       <SlideTitle>Market Opportunity</SlideTitle>
       <SlideTakeaway>
-        Large market, clear wedge, expandable geography and products.
+        $12T+ addressable market across US, Canada & Mexico — clear wedge, expandable segments.
       </SlideTakeaway>
 
       <SlideContent>
@@ -19,40 +19,40 @@ export const MarketSlide = () => {
             transition={{ delay: 0.2, duration: 0.6, ease: deckTransition.ease }}
             className="relative flex items-center justify-center flex-shrink-0"
           >
-            {/* TAM - Outer circle */}
+            {/* Total - Outer circle */}
             <div className="w-56 h-56 md:w-64 md:h-64 rounded-full bg-primary/5 border-2 border-primary/20 flex items-center justify-center">
-              {/* SAM - Middle circle */}
+              {/* Mid circle */}
               <div className="w-40 h-40 md:w-44 md:h-44 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center">
-                {/* SOM - Inner circle */}
+                {/* Inner circle */}
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
                   <div className="text-center">
-                    <p className="text-xl md:text-2xl font-bold text-primary">$750M</p>
-                    <p className="text-xs text-primary font-medium">SOM</p>
+                    <p className="text-xl md:text-2xl font-bold text-primary">$35B+</p>
+                    <p className="text-xs text-primary font-medium">Env. Consulting</p>
                   </div>
                 </div>
               </div>
             </div>
-            {/* TAM Label */}
+            {/* Total Label */}
             <motion.div
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, ...deckTransition }}
               className="absolute -top-2 left-1/2 -translate-x-1/2 bg-background px-2 py-0.5 rounded-full border border-border"
             >
-              <p className="text-sm font-semibold text-foreground">$55B <span className="text-muted-foreground font-normal">TAM</span></p>
+              <p className="text-sm font-semibold text-foreground">$12T+ <span className="text-muted-foreground font-normal">Combined</span></p>
             </motion.div>
-            {/* SAM Label */}
+            {/* Mid Label */}
             <motion.div
               initial={{ opacity: 0, x: 8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, ...deckTransition }}
               className="absolute top-10 -right-2 bg-background px-2 py-0.5 rounded-full border border-border"
             >
-              <p className="text-sm font-semibold text-foreground">$10B <span className="text-muted-foreground font-normal">SAM</span></p>
+              <p className="text-sm font-semibold text-foreground">$3.7T+ <span className="text-muted-foreground font-normal">Construction</span></p>
             </motion.div>
           </motion.div>
 
-          {/* Descriptions */}
+          {/* Segment descriptions */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -60,9 +60,11 @@ export const MarketSlide = () => {
             className="flex flex-wrap justify-center gap-6 mt-2"
           >
             {[
-              { color: "bg-primary/20 border-primary/20", label: "TAM: $55B", desc: "North American Environmental Consulting Services" },
-              { color: "bg-primary/30 border-primary/30", label: "SAM: $10B", desc: "Compliance & permitting automatable by software (US + Canada)" },
-              { color: "bg-primary border-primary", label: "SOM: $750M", desc: "Construction & infrastructure environmental screening", isPrimary: true }
+              { color: "bg-primary/10 border-primary/20", label: "Banking & Finance: $5T+", desc: "Every CRE loan requires a Phase I ESA" },
+              { color: "bg-primary/20 border-primary/30", label: "Construction: $3.7T+", desc: "Env compliance at pre-construction & permitting" },
+              { color: "bg-primary/30 border-primary/40", label: "Real Estate Dev: $3.2T+", desc: "Phase I ESA required for every CRE transaction" },
+              { color: "bg-primary border-primary", label: "Env. Consulting: $35B+", desc: "54,000+ U.S. firms, direct buyer", isPrimary: true },
+              { color: "bg-primary/50 border-primary/50", label: "Government: $15B+", desc: "NEPA, Impact Assessment Act, SEMARNAT mandates" }
             ].map((item, index) => (
               <motion.div
                 key={item.label}
@@ -88,7 +90,7 @@ export const MarketSlide = () => {
             className="bg-accent rounded-xl px-4 py-2 mt-2"
           >
             <p className="text-sm text-foreground">
-              <strong>Expansion:</strong> CA consultants → U.S. markets → Canada, infrastructure, utilities, renewables
+              <strong>Coverage:</strong> U.S. + Canada + Mexico — ASTM E1527-21, CSA Z768-01 & SEMARNAT compliant
             </p>
           </motion.div>
         </div>
@@ -101,7 +103,7 @@ export const MarketSlide = () => {
           className="mt-4 pt-3 border-t border-border"
         >
           <p className="text-xs text-muted-foreground">
-            Sources: IBISWorld (2025); EPA CEQA/NEPA Compliance Data; Grand View Research; Precedence Research
+            Sources: IBISWorld (2025); EPA CEQA/NEPA Compliance Data; Grand View Research; Precedence Research; SEMARNAT
           </p>
         </motion.div>
       </SlideContent>
