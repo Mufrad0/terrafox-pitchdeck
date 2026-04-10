@@ -26,8 +26,8 @@ export const MarketSlide = () => {
                 {/* SOM - Inner circle */}
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
                   <div className="text-center">
-                    <p className="text-xl md:text-2xl font-bold text-primary">$750M</p>
-                    <p className="text-xs text-primary font-medium">SOM</p>
+            <p className="text-xl md:text-2xl font-bold text-primary">$1B+</p>
+                     <p className="text-xs text-primary font-medium">SOM</p>
                   </div>
                 </div>
               </div>
@@ -39,7 +39,7 @@ export const MarketSlide = () => {
               transition={{ delay: 0.4, ...deckTransition }}
               className="absolute -top-2 left-1/2 -translate-x-1/2 bg-background px-2 py-0.5 rounded-full border border-border"
             >
-              <p className="text-sm font-semibold text-foreground">$55B <span className="text-muted-foreground font-normal">TAM</span></p>
+              <p className="text-sm font-semibold text-foreground">$65B <span className="text-muted-foreground font-normal">TAM</span></p>
             </motion.div>
             {/* SAM Label */}
             <motion.div
@@ -48,7 +48,7 @@ export const MarketSlide = () => {
               transition={{ delay: 0.5, ...deckTransition }}
               className="absolute top-10 -right-2 bg-background px-2 py-0.5 rounded-full border border-border"
             >
-              <p className="text-sm font-semibold text-foreground">$10B <span className="text-muted-foreground font-normal">SAM</span></p>
+              <p className="text-sm font-semibold text-foreground">$14B <span className="text-muted-foreground font-normal">SAM</span></p>
             </motion.div>
           </motion.div>
 
@@ -60,9 +60,9 @@ export const MarketSlide = () => {
             className="flex flex-wrap justify-center gap-6 mt-2"
           >
             {[
-              { color: "bg-primary/20 border-primary/20", label: "TAM: $55B", desc: "North American Environmental Consulting Services" },
-              { color: "bg-primary/30 border-primary/30", label: "SAM: $10B", desc: "Compliance & permitting automatable by software (US + Canada)" },
-              { color: "bg-primary border-primary", label: "SOM: $750M", desc: "Construction & infrastructure environmental screening", isPrimary: true }
+              { color: "bg-primary/20 border-primary/20", label: "TAM: $65B", desc: "NA Environmental Services, Construction, RE & Govt Permitting" },
+              { color: "bg-primary/30 border-primary/30", label: "SAM: $14B", desc: "Compliance & permitting automatable by software (US + CA + MX)" },
+              { color: "bg-primary border-primary", label: "SOM: $1B+", desc: "7.1% SAM penetration across all segments at scale", isPrimary: true }
             ].map((item, index) => (
               <motion.div
                 key={item.label}
@@ -88,7 +88,7 @@ export const MarketSlide = () => {
             className="bg-accent rounded-xl px-4 py-2 mt-2"
           >
             <p className="text-sm text-foreground">
-              <strong>Expansion:</strong> CA consultants → U.S. markets → Canada, infrastructure, utilities, renewables
+              <strong>Expansion:</strong> CA consultants → U.S. markets → Canada → Construction & infrastructure → Govt permitting → Mexico
             </p>
           </motion.div>
         </div>
