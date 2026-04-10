@@ -7,7 +7,7 @@ export const MarketSlide = () => {
     <SlideLayout>
       <SlideTitle>Market Opportunity</SlideTitle>
       <SlideTakeaway>
-        Large market, clear wedge, expandable geography and products.
+        $12T+ addressable market across US, Canada & Mexico — clear wedge, expandable segments.
       </SlideTakeaway>
 
       <SlideContent>
